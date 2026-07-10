@@ -9,7 +9,8 @@ jobs:
   continous-intergration-test: 
     runs-on: ubuntu:latest 
 
-    steps: my-first_commen 
-    run: echo "My first job triggered by suhas"
+    steps: 
+     - name: my-first-job 
+       run: echo "My first job triggered by suhas"
 
 
