@@ -1,16 +1,18 @@
 name: application-deployment 
 
 on:
- push: 
-   branches: 
-     - main
-
+ workflow_dispatch: 
+ 
 jobs: 
   continous-intergration-test: 
+    
     runs-on: ubuntu:latest 
 
     steps: 
+     - name: checking out the source code
+       uses: actions/checkout@v7
+     
      - name: my-first-job 
-       run: echo "My first job triggered by suhas"
+       run: ls -lrt
 
 
