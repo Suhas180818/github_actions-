@@ -6,13 +6,16 @@ on:
 jobs: 
   continous-intergration-test: 
     
-    runs-on: ubuntu:latest 
+    runs-on: ubuntu-latest 
 
     steps: 
      - name: checking out the source code
        uses: actions/checkout@v7
+       with: 
+         repository: Suhas180818/Tools_Installation
+
      
-     - name: my-first-job 
+     - name: my-first-job   
        run: ls -lrt
 
 
