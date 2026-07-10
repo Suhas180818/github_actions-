@@ -1,0 +1,15 @@
+name: application-deployment 
+
+on:
+ push: 
+   branches: 
+     - main
+
+jobs: 
+  continous-intergration-test: 
+    runs-on: ubuntu:latest 
+
+    steps: my-first_commen 
+    run: echo "My first job triggered by suhas"
+
+
