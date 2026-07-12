@@ -1,0 +1,19 @@
+name: output
+
+on: 
+  workflow_dispatch:
+
+jobs: 
+  output_display_job:
+    
+    runs-on: ubuntu-latest 
+    
+    steps: 
+      - name: building 
+        id: step1
+        run: |
+             echo "message= The message is from the step1" >> $GITHUB_OUTPUT
+
+
+      - name: output 
+        run: echo "${{steps.step1.outputs.message}}"
