@@ -19,7 +19,7 @@ jobs:
              name: build-output 
              path: build/ 
              
-    downloading the artifactory: 
+    downloading-the-artifactory: 
       
       needs: output_building
       
