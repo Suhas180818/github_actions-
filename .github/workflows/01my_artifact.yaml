@@ -1,17 +1,17 @@
-name: Artifacts-storage 
+name: artifacts-storage 
 
 on: 
   workflow_dispatch:
 
 jobs: 
-    output_building: 
-       runs-on: ubuntu:latest 
+    output-building: 
+       runs-on: ubuntu-latest 
 
        steps: 
          - name: creating and appending the file 
            run: |
              mkdir build 
-             echo"This is the test file for artifact storage" > build/sample.txt 
+             echo "This is the test file for artifact storage" > build/sample.txt 
 
          - name: uploading the file to artifactory 
            uses: actions/upload-artifact@v7 
@@ -19,7 +19,7 @@ jobs:
              name: build-output 
              path: build/ 
              
-    downoading the artifactory: 
+    downloading the artifactory: 
       
       needs: output_building
       
@@ -33,7 +33,7 @@ jobs:
             path: ./build
 
 
-        - name: file_Checking
+        - name: file Checking
           run: | 
              ls -lrt  
              cat ./build/sample.txt 
