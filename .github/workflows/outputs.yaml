@@ -8,6 +8,9 @@ jobs:
     
     runs-on: ubuntu-latest 
     
+    outputs:
+       output_building: ${{steps.step1.outputs.message}}
+
     steps: 
       - name: building 
         id: step1
@@ -17,3 +20,14 @@ jobs:
 
       - name: output 
         run: echo "${{steps.step1.outputs.message}}"
+  
+
+
+  second_job:  
+    needs: output_display_job
+     
+    runs-on: ubuntu-latest
+
+    steps: 
+       - name: variable_outputstage 
+         run: echo "Referring the output of the other job - ${{needs.output_display_job.outputs.output_building}}"
