@@ -43,6 +43,8 @@ jobs:
   
   job2: 
     needs: job1 
+    if: ${{ always() }}
+    
     runs-on: ubuntu-latest 
     
     steps: 
