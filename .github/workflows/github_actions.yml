@@ -1,0 +1,62 @@
+name: Deploy_mern_applications 
+ 
+on: 
+  workflow_dispatch:
+  
+  # schedule: 
+  #   - cron: * * * * *
+  
+  # pull_request: 
+  #   branches: [main] 
+
+  # push: 
+  #  branches:
+  #   - main 
+  #  paths: 
+  #   - '**.js' 
+  
+   inputs: 
+     username: 
+      type: string 
+      required : true 
+      default: "suhas"
+      description: "Provide the workflow username" 
+     
+     environemnt: 
+       type: choice 
+       required: true 
+       default: "test"
+       description: "Select the environment"
+       options:
+         - dev 
+         - prod 
+         - test 
+
+env: 
+ USERNAME: "suhas_sanghwan"
+ PASSWORD: "1234567890"
+
+
+jobs: 
+  job1:
+    runs-on: ubuntu-latest 
+    
+    env: 
+      USERNAME_01: "sanghwan" 
+      PASSWORD: "1233345555"
+
+    steps: 
+     - name: checking out the SCM 
+       uses: actions/checkout@v7 
+       with: 
+         repository: '<URL>'
+         token: '<TOKEN>'
+
+
+     - name: verifying the inputs
+       run: ${{inputs.environment}} 
+        
+     - name: Reffering the global variable 
+       run: |
+        echo "The global environment is $USERNAME" 
+        echo "The run level variable is $USERNAME_01" 
