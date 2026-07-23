@@ -1,0 +1,38 @@
+name: upload_download 
+
+on: 
+  workflow_dispatch: 
+    inputs: 
+       username:   
+         type: string 
+         required: true 
+         description: "kindly share the username"
+
+
+jobs: 
+   buildjob: 
+      runs-on: ubuntu-latest 
+
+      steps: 
+        - name: creating the file  
+          run: | 
+            mkdir suhas 
+            echo "This file is test for the upload as artifact" >> suhas/upload.txt  
+
+        - name: uploading the file in the repository  
+          uses: actions/upload-artifact@v7  
+          with: 
+            name: test-files 
+            path: suhas/ 
+             
+   downloadjob: 
+      needs: buildjob
+      runs-on: ubuntu-latest 
+      
+      steps:  
+        - name: downloading the same files 
+          uses: actions/download-artifact@v8 
+          with: 
+            name: test-files
+            path: suhas/ 
+
