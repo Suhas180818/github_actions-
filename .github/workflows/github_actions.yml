@@ -48,15 +48,16 @@ jobs:
     steps: 
      - name: checking out the SCM 
        uses: actions/checkout@v7 
-       with: 
-         repository: '<URL>'
-         token: '<TOKEN>'
-
-
+      
      - name: verifying the inputs
-       run: ${{inputs.environment}} 
+       run: echo "The environment variable: ${{inputs.environment}}" 
         
      - name: Reffering the global variable 
        run: |
         echo "The global environment is $USERNAME" 
         echo "The run level variable is $USERNAME_01" 
+
+     - name: Referring the secrets and variables 
+       run: |
+         echo "The repo variable is: ${{vars.USERNAME}}"
+         echo "The repo secret is: ${{secrets.PASSWORD}}"
