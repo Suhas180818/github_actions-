@@ -22,7 +22,7 @@ on:
       default: "suhas"
       description: "Provide the workflow username" 
      
-     environemnt: 
+     environment: 
        type: choice 
        required: true 
        default: "test"
