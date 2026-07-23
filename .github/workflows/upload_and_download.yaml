@@ -35,4 +35,8 @@ jobs:
           with: 
             name: test-files
             path: suhas/ 
+          
+          run: |
+            ls -lrt  
+
 
