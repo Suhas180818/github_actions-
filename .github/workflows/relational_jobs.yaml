@@ -36,7 +36,10 @@ jobs:
       - name: verifing the variables 
         run: | 
           echo "The input variable is: ${{ inputs.environment }}" 
-          echo "The input variable is: ${{ inputs.username }}" 
+          echo "The input variable is: ${{ inputs.username }}"  
+      
+      - name: testng the exit 
+        run: exit 1
   
   job2: 
     needs: job1 
