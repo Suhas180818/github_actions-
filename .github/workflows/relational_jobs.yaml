@@ -1,0 +1,37 @@
+name: Relational-jobs 
+
+on: 
+  workflow_dispatch: 
+
+   inputs: 
+      username: 
+        type: string 
+        default: suhas 
+        description: "Please give the username"     
+        required: true
+      
+      environment: 
+        type: choice 
+        default: test 
+        description: "The environment for deploy"
+        required: true 
+        options: 
+          - test 
+          - QA 
+          - prod 
+
+
+jobs: 
+  job1: 
+    runs-on: ubuntu-latest 
+
+    steps: 
+      - name: checking out the code
+        uses: actions/checkout@v7 
+
+      - name: verifing the variables 
+        run: | 
+          echo "The input variable is: ${{ inputs.environment }}" 
+          echo "The input variable is: ${{ inputs.username }}" 
+
+      
