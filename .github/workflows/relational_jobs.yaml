@@ -20,6 +20,10 @@ on:
           - QA 
           - prod 
 
+env: 
+  DB_USERNAME: "my-db-mangodb" 
+  DB_PASSWORD: "1234566778"
+
 
 jobs: 
   job1: 
@@ -33,5 +37,14 @@ jobs:
         run: | 
           echo "The input variable is: ${{ inputs.environment }}" 
           echo "The input variable is: ${{ inputs.username }}" 
-
+  
+  job2: 
+    needs: job1 
+    runs-on: ubuntu-latest 
+    
+    steps: 
+      - name: verifing the variables 
+        run: | 
+          echo "The environment variable is $DB_USERNAME" 
+          echo "The environment variable is $DB_PASSWORD"
       
